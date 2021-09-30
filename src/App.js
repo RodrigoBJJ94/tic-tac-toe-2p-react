@@ -137,13 +137,13 @@ export default function App() {
 
   return (
     <div>
-      <div>
-        <p>Who's Play: {symbolTurn}</p>
+      <div className="div-who-is-play">
+        <p className="who-is-play">Who's Play: {symbolTurn}</p>
       </div>
-      <div>
+      <div className="game">
         {board(game)}
       </div>
-      <div>
+      <div className="play-again">
         {playAgain()}
       </div>
     </div>
