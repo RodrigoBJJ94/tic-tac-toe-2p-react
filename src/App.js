@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
+import Board from './components/Board';
+import PlayAgain from './components/PlayAgain';
+import WhoIsPlay from './components/WhoIsPlay';
 
 export default function App() {
   const [game, setGame] = useState([['', '', ''], ['', '', ''], ['', '', '']]);
@@ -10,29 +13,15 @@ export default function App() {
 
   const board = (gm) => {
     return (
-      <div className="board">
-        <div className="board-line">
-          <div className="square" data-pos="00" onClick={(element) => play(element)}>{gm[0][0]}</div>
-          <div className="square" data-pos="01" onClick={(element) => play(element)}>{gm[0][1]}</div>
-          <div className="square" data-pos="02" onClick={(element) => play(element)}>{gm[0][2]}</div>
-        </div>
-        <div className="board-line">
-          <div className="square" data-pos="10" onClick={(element) => play(element)}>{gm[1][0]}</div>
-          <div className="square" data-pos="11" onClick={(element) => play(element)}>{gm[1][1]}</div>
-          <div className="square" data-pos="12" onClick={(element) => play(element)}>{gm[1][2]}</div>
-        </div>
-        <div className="board-line">
-          <div className="square" data-pos="20" onClick={(element) => play(element)}>{gm[2][0]}</div>
-          <div className="square" data-pos="21" onClick={(element) => play(element)}>{gm[2][1]}</div>
-          <div className="square" data-pos="22" onClick={(element) => play(element)}>{gm[2][2]}</div>
-        </div>
-      </div>
+      <Board play={play} gm={gm} />
     );
   };
 
   const playAgain = () => {
     if (!playing) {
-      return <button onClick={() => restart()}>Play Again</button>
+      return (
+        <PlayAgain restart={restart} />
+      );
     };
   };
 
@@ -137,9 +126,7 @@ export default function App() {
 
   return (
     <div>
-      <div className="div-who-is-play">
-        <p className="who-is-play">Who's Play: {symbolTurn}</p>
-      </div>
+      <WhoIsPlay symbolTurn={symbolTurn} />
       <div className="game">
         {board(game)}
       </div>
