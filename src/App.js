@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import swal from 'sweetalert';
 import Board from './components/Board';
 import PlayAgain from './components/PlayAgain';
 import WhoIsPlay from './components/WhoIsPlay';
@@ -109,11 +110,11 @@ export default function App() {
         turnPlayer();
         if (verifyVictory()) {
           turnPlayer();
-          alert(`Player ${symbolTurn} win!`);
+          swal(`Player ${symbolTurn} win!`);
           setPlaying(false);
         }
       } else {
-        alert('This square is not empty!');
+        swal('This square is not empty!');
       }
     }
   }
