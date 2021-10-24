@@ -1,6 +1,7 @@
 import React from 'react';
+import './Styles.css';
 
-export default function PlayAgain({ setPlaying, setGame, setSymbolTurn }) {
+export default function PlayAgain({ setPlaying, setGame, setSymbolTurn, playing }) {
     const gameStart = [['', '', ''], ['', '', ''], ['', '', '']];
 
     const restart = () => {
@@ -10,6 +11,8 @@ export default function PlayAgain({ setPlaying, setGame, setSymbolTurn }) {
     };
 
     return (
-        <button onClick={() => restart()}>Play Again</button>
+        <div className="play-again">
+            <button onClick={() => restart()}>Play Again</button>
+        </div>
     );
 };

@@ -1,0 +1,72 @@
+.board {
+    display: flex;
+    flex-direction: column;
+}
+  
+.board-line {
+    display: flex;
+    flex-direction: row;
+}
+  
+.square {
+    width: 115px;
+    height: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    cursor: pointer;
+    font-size: 60px;
+    border: 1px solid #000;
+}
+  
+.game {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px auto;
+}
+  
+.div-who-is-play {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+  
+.who-is-play {
+    font-weight: bold;
+    font-size: 18px;
+}
+  
+.swal-button {
+    background-color: rgb(75, 121, 206);
+    padding: 5px;
+    font-weight: bold;
+}
+  
+.swal-text {
+    font-weight: bold;
+}
+  
+.swal-overlay {
+    background-color: rgba(75, 121, 206, 0.3);
+}
+  
+button {
+    width: 110px;
+    height: 32px;
+    font-size: 17px;
+    background-color: rgb(75, 121, 206);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+@media (max-width: 320px) {
+    .square {
+      width: 95px;
+      height: 95px;
+    }
+}
+  
