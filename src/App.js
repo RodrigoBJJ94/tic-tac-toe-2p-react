@@ -1,30 +1,24 @@
 import React, { useState } from 'react';
 import './App.css';
 import swal from 'sweetalert';
-import Board from './components/Board';
-import PlayAgain from './components/PlayAgain';
-import WhoIsPlay from './components/WhoIsPlay';
+import Board from './components/Board/Board';
+import PlayAgain from './components/PlayAgain/PlayAgain';
+import WhoIsPlay from './components/WhoIsPlay/WhoIsPlay';
 
 export default function App() {
   const [game, setGame] = useState([['', '', ''], ['', '', ''], ['', '', '']]);
   const [symbolTurn, setSymbolTurn] = useState('X');
   const [playing, setPlaying] = useState(true);
 
-  const gameStart = [['', '', ''], ['', '', ''], ['', '', '']];
+  
 
-  const board = (gm) => {
-    return (
-      <Board play={play} gm={gm} />
-    );
-  };
 
-  const playAgain = () => {
-    if (!playing) {
-      return (
-        <PlayAgain restart={restart} />
-      );
-    };
-  };
+
+
+
+
+
+  
 
   const verifyVictory = () => {
     let points = 0;
@@ -119,17 +113,19 @@ export default function App() {
     }
   }
 
-  const restart = () => {
-    setPlaying(true);
-    setGame(gameStart);
-    setSymbolTurn('X');
+  const playAgain = () => {
+    if (!playing) {
+      return (
+        <PlayAgain setPlaying={setPlaying} setGame={setGame} setSymbolTurn={setSymbolTurn} />
+      );
+    };
   };
 
   return (
     <div>
       <WhoIsPlay symbolTurn={symbolTurn} />
       <div className="game">
-        {board(game)}
+        <Board play={play} game={game} />
       </div>
       <div className="play-again">
         {playAgain()}
